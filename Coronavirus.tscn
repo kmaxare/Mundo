@@ -3,7 +3,7 @@
 [ext_resource path="res://Escenas/personaje.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tileset/losa.tres" type="TileSet" id=2]
 
-[node name="Coronavirus" type="Node"]
+[node name="Mundo" type="Node"]
 
 [node name="Menu" type="Control" parent="."]
 margin_right = 40.0
