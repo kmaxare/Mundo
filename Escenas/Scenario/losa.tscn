@@ -3,7 +3,6 @@
 [ext_resource path="res://Sprite/pista.png" type="Texture" id=1]
 
 [sub_resource type="StreamTexture" id=1]
-flags = 4
 load_path = "res://.import/loza.png-9e759f9a6496a09d81a695412a5e5381.stex"
 
 [node name="Escenario" type="Node2D"]

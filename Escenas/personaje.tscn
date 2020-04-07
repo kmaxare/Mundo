@@ -40,6 +40,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=4]
 resource_name = "mov_x"
+length = 0.4
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -48,7 +49,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
+"times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 6, 7 ]
@@ -56,6 +57,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=5]
 resource_name = "mov_y"
+length = 0.4
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -64,7 +66,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
+"times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 2, 3 ]
@@ -78,7 +80,7 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 vframes = 3
 hframes = 3
-frame = 1
+frame = 7
 region_rect = Rect2( 0, 0, 100, 96 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
