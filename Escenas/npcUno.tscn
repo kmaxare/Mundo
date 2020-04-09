@@ -1,0 +1,135 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scripts/npcUno.gd" type="Script" id=1]
+[ext_resource path="res://Sprite/npc/npcUno.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 6.99853
+
+[sub_resource type="Animation" id=2]
+resource_name = "idle_x"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6, 5, 6, 5, 4 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "idle_y"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 7, 11, 12, 11, 12, 11, 7 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "moder_x"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 0 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "moder_y"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 7, 8 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "mov_x"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 2, 0, 3, 0 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "mov_y"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 7, 9, 7, 10 ]
+}
+
+[node name="npcUno" type="KinematicBody2D"]
+script = ExtResource( 1 )
+speed = 10
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+vframes = 4
+hframes = 4
+frame = 7
+region_rect = Rect2( 0, 0, 100, 96 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.0295947, -0.00192022 )
+shape = SubResource( 1 )
+
+[node name="anim" type="AnimationPlayer" parent="."]
+anims/idle_x = SubResource( 2 )
+anims/idle_y = SubResource( 6 )
+anims/moder_x = SubResource( 3 )
+anims/moder_y = SubResource( 7 )
+anims/mov_x = SubResource( 4 )
+anims/mov_y = SubResource( 5 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2( 0.3, 0.3 )

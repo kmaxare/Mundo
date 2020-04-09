@@ -32,7 +32,7 @@ func movimiento(delta):
 	
 	move_and_slide(velocidad, Vector2())
 
-func sprite():
+func sprite(): # Cambio de posicion de sprite en x and y
 	if direccion_x != 0:
 		mirar_x = true 
 		if direccion_x > 0:
