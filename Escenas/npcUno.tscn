@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/npcUno.gd" type="Script" id=1]
 [ext_resource path="res://Sprite/npc/npcUno.png" type="Texture" id=2]
@@ -23,7 +23,7 @@ tracks/0/keys = {
 "values": [ 4, 5, 6, 5, 6, 5, 4 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=3]
 resource_name = "idle_y"
 length = 4.0
 loop = true
@@ -40,8 +40,7 @@ tracks/0/keys = {
 "values": [ 7, 11, 12, 11, 12, 11, 7 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "moder_x"
+[sub_resource type="Animation" id=4]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -57,7 +56,7 @@ tracks/0/keys = {
 "values": [ 1, 0 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=5]
 resource_name = "moder_y"
 length = 0.4
 loop = true
@@ -74,8 +73,7 @@ tracks/0/keys = {
 "values": [ 7, 8 ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "mov_x"
+[sub_resource type="Animation" id=6]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -91,8 +89,7 @@ tracks/0/keys = {
 "values": [ 2, 0, 3, 0 ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "mov_y"
+[sub_resource type="Animation" id=7]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -108,9 +105,12 @@ tracks/0/keys = {
 "values": [ 7, 9, 7, 10 ]
 }
 
+[sub_resource type="CircleShape2D" id=8]
+radius = 47.194
+
 [node name="npcUno" type="KinematicBody2D"]
 script = ExtResource( 1 )
-speed = 10
+speed = 25
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
@@ -125,11 +125,18 @@ shape = SubResource( 1 )
 
 [node name="anim" type="AnimationPlayer" parent="."]
 anims/idle_x = SubResource( 2 )
-anims/idle_y = SubResource( 6 )
-anims/moder_x = SubResource( 3 )
-anims/moder_y = SubResource( 7 )
-anims/mov_x = SubResource( 4 )
-anims/mov_y = SubResource( 5 )
+anims/idle_y = SubResource( 3 )
+anims/moder_x = SubResource( 4 )
+anims/moder_y = SubResource( 5 )
+anims/mov_x = SubResource( 6 )
+anims/mov_y = SubResource( 7 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2( 0.3, 0.3 )
+
+[node name="areaVision" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areaVision"]
+shape = SubResource( 8 )
+[connection signal="body_entered" from="areaVision" to="." method="_on_areaVision_body_entered"]
+[connection signal="body_exited" from="areaVision" to="." method="_on_areaVision_body_exited"]

@@ -46,8 +46,20 @@ position = Vector2( -67.6691, 28.5272 )
 position = Vector2( 185.572, -84.2853 )
 speed = 100
 
-[node name="NpcUno" parent="." instance=ExtResource( 3 )]
-position = Vector2( -19.5332, 46.8522 )
+[node name="Npc" type="Node2D" parent="."]
 
-[node name="npcDos" parent="." instance=ExtResource( 3 )]
-position = Vector2( 20.9001, 174.801 )
+[node name="npcUno" parent="Npc" instance=ExtResource( 3 )]
+position = Vector2( 17.5694, -16.4858 )
+distancia = 90
+
+[node name="npcDos" parent="Npc" instance=ExtResource( 3 )]
+position = Vector2( 18.5317, 112.116 )
+distancia = 30
+rut_patrullaje = false
+
+[node name="npcTres" parent="Npc" instance=ExtResource( 3 )]
+position = Vector2( -17.1418, 10.1924 )
+
+[node name="npcCuat" parent="Npc" instance=ExtResource( 3 )]
+position = Vector2( 19.7949, 175.769 )
+distancia = 65
