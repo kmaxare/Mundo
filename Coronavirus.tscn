@@ -59,6 +59,7 @@ rut_patrullaje = false
 
 [node name="npcTres" parent="Npc" instance=ExtResource( 3 )]
 position = Vector2( -17.1418, 10.1924 )
+rut_patrullaje = false
 
 [node name="npcCuat" parent="Npc" instance=ExtResource( 3 )]
 position = Vector2( 19.7949, 175.769 )

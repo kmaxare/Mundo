@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+var player_node = KinematicBody2D
+
 # Variables para el movimiento del personaje
 export var speed = 10
 export var distancia = 50 # Distancia que recorrera en x and y el NPC
@@ -8,9 +10,14 @@ export var rut_patrullaje = true # Direccion de patrulla false (arriba, abajo), 
 var ubicacion = Vector2()
 var mirar_x = true # Variable para oreientar a donde mira el jugador
 
+# Valores de Copia para la distancia y ubicacion
+var _copia_end_position
+var _copia_ubicacion
+
 # Variable para el patrullaje de el npc
 var start_position = Vector2() # Ubicacion actual
 var end_position = Vector2(0, 0) # Rango de distancia que rrecore npc
+var last_position = Vector2()
 
 enum {patrulla, persecucion, retorno} # Estados del personaje
 
@@ -26,15 +33,31 @@ func _ready():
 	$anim.play("idleUno") 
 	end_position = Vector2(distancia, distancia) # Rango de distancia que rrecore npc
 	
-func _physics_process(delta):
-	movimiento(delta)
+	_copia_end_position = end_position
+	_copia_ubicacion = ubicacion
 
-func movimiento(delta):
-	_proceso_patrulla()
-	anim_sprite()
+#func _physics_process(delta):
+#	movimiento(delta)
+#
+#func movimiento(delta):
+#	pass
+	
+	
+
+func _process(delta):
+	match state:
+		patrulla:
+			_proceso_patrulla()
+			anim_sprite()
+		persecucion:
+			_persecucion()
+		retorno:
+			_retornar()
+			
 	
 	var motion = ubicacion.normalized() * speed * delta
 	move_and_collide(motion)
+#	global_position = Vector2(round(global_position.x), round(global_position.y))
 
 func anim_sprite(): # Cambio de posicion de sprite en x and y
 	if ubicacion.x != 0:
@@ -67,17 +90,17 @@ func _proceso_patrulla():
 #		_ruta_aleatoria()
 	
 	if rut_patrullaje:
-		if position.x > end_position.x: # Si se pasa de end_position entonces regresa
+		if global_position.x > end_position.x: # Si se pasa de end_position entonces regresa
 			ubicacion.x -= 1
 		
-		elif position.x < end_position.x:
+		elif global_position.x < end_position.x:
 			ubicacion.x += 1
 	
 	elif !rut_patrullaje:
-		if position.y > start_position.y + end_position.y:
+		if global_position.y > start_position.y + end_position.y:
 			ubicacion.y -= 1
 			
-		elif position.y < start_position.y + end_position.y:
+		elif global_position.y < start_position.y + end_position.y:
 			ubicacion.y += 1
 	
 #	llave += 1
@@ -94,16 +117,30 @@ func _ruta_aleatoria():
 			rut_patrullaje = true
 	
 func _persecucion():
-	pass
+	ubicacion = Vector2.ZERO
+	ubicacion = (player_node.position - position).normalized() * speed
 	
 func _retornar():
-	pass
+	ubicacion = Vector2.ZERO
+	ubicacion = (last_position - position).normalized() * speed
+	
+	if Vector2(round(global_position.x), round(global_position.y)) == Vector2(round(last_position.x), round(last_position.y)):
+		_ruta_reset()
+		state = patrulla
 	
 # Funciones para seguir al Personaje y para dejar de seguirlo
 func _on_areaVision_body_entered(body):
-#	print ("ese man es un tipaso")
-	pass
+	if body.is_in_group("Jugador"):
+		if state == patrulla: # Si el npc esta es estado patrulla
+			last_position = global_position
+		player_node = body
+		state = persecucion # CAmbiamos el estado del npc a persecucion
 
 func _on_areaVision_body_exited(body):
-#	print ("ya se fue")
-	pass
+	if body.is_in_group("Jugador") and state == persecucion:
+		state = retorno
+		
+func _ruta_reset():
+	print (distancia)
+	end_position = _copia_end_position
+	ubicacion = _copia_ubicacion

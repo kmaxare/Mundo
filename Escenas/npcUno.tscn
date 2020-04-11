@@ -108,7 +108,9 @@ tracks/0/keys = {
 [sub_resource type="CircleShape2D" id=8]
 radius = 47.194
 
-[node name="npcUno" type="KinematicBody2D"]
+[node name="npcUno" type="KinematicBody2D" groups=[
+"npcUno",
+]]
 script = ExtResource( 1 )
 speed = 25
 
