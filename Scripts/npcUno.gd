@@ -141,6 +141,5 @@ func _on_areaVision_body_exited(body):
 		state = retorno
 		
 func _ruta_reset():
-	print (distancia)
 	end_position = _copia_end_position
 	ubicacion = _copia_ubicacion
