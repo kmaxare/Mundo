@@ -1,81 +1,146 @@
 extends KinematicBody2D
 
+var player_node = KinematicBody2D
+
 # Variables para el movimiento del personaje
-export var speed = 30
-var direccion_x = 0
-var direccion_y = 0
+export var speed = 10
+export var distancia = 50 # Distancia que recorrera en x and y el NPC
+export var rut_patrullaje = true # Direccion de patrulla false (arriba, abajo), true (derecha, izquierda)
 
-var distancia = Vector2()
-var velocidad = Vector2()
-
+var ubicacion = Vector2()
 var mirar_x = true # Variable para oreientar a donde mira el jugador
+
+# Valores de Copia para la distancia y ubicacion
+var _copia_end_position
+var _copia_ubicacion
 
 # Variable para el patrullaje de el npc
 var start_position = Vector2() # Ubicacion actual
-var end_position = Vector2(50, 0) # Rango de distancia que recore npc
-var last_postion = Vector2()
+var end_position = Vector2(0, 0) # Rango de distancia que rrecore npc
+var last_position = Vector2()
 
-enum {patrulla, persecucion, retorno}
+enum {patrulla, persecucion, retorno} # Estados del personaje
 
 var state = patrulla
 var vel_max = 1
+#var llave = 0
+
+#var llave = true
+#var copia = true
 
 func _ready():
 	start_position = position
-	$anim.play("idleUno")
+	$anim.play("idleUno") 
+	end_position = Vector2(distancia, distancia) # Rango de distancia que rrecore npc
 	
-func _physics_process(delta):
-	
-	movimiento(delta)
+	_copia_end_position = end_position
+	_copia_ubicacion = ubicacion
 
-func movimiento(delta):
-#	direccion_x = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
-#	direccion_y = int(Input.is_action_pressed("ui_down")) - int(Input.is_action_pressed("ui_up"))
+#func _physics_process(delta):
+#	movimiento(delta)
+#
+#func movimiento(delta):
+#	pass
 	
-	_proceso_patrulla()
-	sprite()
 	
-	distancia.x = speed * delta
-	velocidad.x = (direccion_x * distancia.x) / delta
-	distancia.y = speed * delta
-	velocidad.y = (direccion_y * distancia.y) / delta
-	move_and_slide(velocidad, Vector2())
-	
-#	velocidad.x = clamp(velocidad.x, -vel_max, vel_max)
-#	print (velocidad.x)
 
-func sprite(): # Cambio de posicion de sprite en x and y
-	if direccion_x != 0:
+func _process(delta):
+	match state:
+		patrulla:
+			_proceso_patrulla()
+			anim_sprite()
+		persecucion:
+			_persecucion()
+		retorno:
+			_retornar()
+			
+	
+	var motion = ubicacion.normalized() * speed * delta
+	move_and_collide(motion)
+#	global_position = Vector2(round(global_position.x), round(global_position.y))
+
+func anim_sprite(): # Cambio de posicion de sprite en x and y
+	if ubicacion.x != 0:
 		mirar_x = true 
-		if direccion_x > 0:
+		if ubicacion.x > 0:
 			$Sprite.flip_h = false
-		elif direccion_x < 0:
+		elif ubicacion.x < 0:
 			$Sprite.flip_h = true
 		$anim.play("mov_x")
-			
-	elif direccion_y != 0:
+
+	elif ubicacion.y != 0:
 		mirar_x = false
-		if direccion_y > 0:
+		if ubicacion.y > 0:
 			$Sprite.flip_v = false
-		elif direccion_y < 0:
+		elif ubicacion.y < 0:
 			$Sprite.flip_v = true
 		$anim.play("mov_y")
-	elif direccion_x == 0 and direccion_y == 0:
+	elif ubicacion.x == 0 and ubicacion.y == 0:
 		if !mirar_x:
 			$anim.play("idle_y")
 		else:
 			$anim.play("idle_x")
 	
 func _proceso_patrulla():
-	if global_position.x > start_position.x + end_position.x: # Si se pasa de end_position entonces regresa
-		direccion_x -= 0.1
+	# Patrullaje en zig zag
+#	if int(global_position.x) == (end_position.x  - 1) and llave < 1:
+#		_ruta_aleatoria()
+#
+#	elif int(global_position.y) == (end_position.y - 1) and llave < 1:
+#		_ruta_aleatoria()
+	
+	if rut_patrullaje:
+		if global_position.x > end_position.x: # Si se pasa de end_position entonces regresa
+			ubicacion.x -= 1
 		
-	elif global_position.x < start_position.x + end_position.x:
-		direccion_x += 0.1
+		elif global_position.x < end_position.x:
+			ubicacion.x += 1
+	
+	elif !rut_patrullaje:
+		if global_position.y > start_position.y + end_position.y:
+			ubicacion.y -= 1
+			
+		elif global_position.y < start_position.y + end_position.y:
+			ubicacion.y += 1
+	
+#	llave += 1
+#	if llave == 2:
+#		llave -= llave
+	
+func _ruta_aleatoria():
+	randomize()
+	var aleatorio = randi() % 1
+	match aleatorio:
+		0:
+			rut_patrullaje = false
+		1:
+			rut_patrullaje = true
 	
 func _persecucion():
-	pass
+	ubicacion = Vector2.ZERO
+	ubicacion = (player_node.position - position).normalized() * speed
 	
 func _retornar():
-	pass
+	ubicacion = Vector2.ZERO
+	ubicacion = (last_position - position).normalized() * speed
 	
+	if Vector2(round(global_position.x), round(global_position.y)) == Vector2(round(last_position.x), round(last_position.y)):
+		_ruta_reset()
+		state = patrulla
+	
+# Funciones para seguir al Personaje y para dejar de seguirlo
+func _on_areaVision_body_entered(body):
+	if body.is_in_group("Jugador"):
+		if state == patrulla: # Si el npc esta es estado patrulla
+			last_position = global_position
+		player_node = body
+		state = persecucion # CAmbiamos el estado del npc a persecucion
+
+func _on_areaVision_body_exited(body):
+	if body.is_in_group("Jugador") and state == persecucion:
+		state = retorno
+		
+func _ruta_reset():
+	print (distancia)
+	end_position = _copia_end_position
+	ubicacion = _copia_ubicacion

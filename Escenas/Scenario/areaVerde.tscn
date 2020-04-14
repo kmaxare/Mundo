@@ -1,0 +1,89 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Sprite/area_verde.png" type="Texture" id=1]
+[ext_resource path="res://Sprite/pista.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 5.37779, 5.21547 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 5.11391, 5.01756 )
+
+[node name="areaVerde" type="Node2D"]
+
+[node name="macetaUno" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 4
+frame = 9
+
+[node name="StaticBody2D" type="StaticBody2D" parent="macetaUno"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="macetaUno/StaticBody2D"]
+shape = SubResource( 1 )
+
+[node name="macetaDos" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 4
+frame = 8
+
+[node name="StaticBody2D" type="StaticBody2D" parent="macetaDos"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="macetaDos/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 4
+
+[node name="Sprite2" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 4
+frame = 1
+
+[node name="Sprite3" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 4
+frame = 2
+
+[node name="Sprite4" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 4
+frame = 3
+
+[node name="Sprite5" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 4
+frame = 4
+
+[node name="Sprite6" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 4
+frame = 5
+
+[node name="Sprite7" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 4
+frame = 6
+
+[node name="Sprite8" type="Sprite" parent="."]
+position = Vector2( 18.1749, 14.1639 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 4
+frame = 7
+
+[node name="Sprite9" type="Sprite" parent="."]
+position = Vector2( 17.9868, 0.0626717 )
+texture = ExtResource( 2 )
+vframes = 14
+hframes = 5
+frame = 39
