@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Escenas/Scenario/puerta.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/edificio.gd" type="Script" id=2]
+[ext_resource path="res://Sprite/edificio/edificio_defauld.png" type="Texture" id=4]
+
+[node name="Edificio" type="StaticBody2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0.284792, -0.264913 )
+texture = ExtResource( 4 )
+
+[node name="collision_edificio" type="CollisionPolygon2D" parent="."]
+position = Vector2( 0.579887, 1.13355 )
+polygon = PoolVector2Array( -34.3034, 57.8644, 34.6061, 58.1564, 34.6061, 39.761, 37.234, 40.053, 37.818, 13.482, -38.0993, 13.19, -38.0993, 38.3011, -34.3034, 38.5931 )
+
+[node name="puerta" parent="." instance=ExtResource( 1 )]
+position = Vector2( 6.07285, 27.0518 )

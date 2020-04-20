@@ -4,14 +4,15 @@
 [ext_resource path="res://Sprite/pista.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 5.37779, 5.21547 )
+extents = Vector2( 4.97542, 4.97723 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 5.11391, 5.01756 )
+extents = Vector2( 5.01196, 5.01756 )
 
 [node name="areaVerde" type="Node2D"]
 
 [node name="macetaUno" type="Sprite" parent="."]
+position = Vector2( 66.9577, 3.49648 )
 texture = ExtResource( 1 )
 vframes = 3
 hframes = 4
@@ -23,6 +24,7 @@ frame = 9
 shape = SubResource( 1 )
 
 [node name="macetaDos" type="Sprite" parent="."]
+position = Vector2( 46.6781, 6.11885 )
 texture = ExtResource( 1 )
 vframes = 3
 hframes = 4
