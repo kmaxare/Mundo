@@ -16,3 +16,4 @@ position = Vector2( 0, 0.184025 )
 polygon = PoolVector2Array( -25.8561, 30.707, 26.5774, 30.9627, 26.6626, 12.2913, 28.782, 12.3087, 28.6774, 0.375889, -28.2923, 0.291405, -28.0218, 12.0604, -25.8574, 12.1957 )
 
 [node name="puerta" parent="." instance=ExtResource( 3 )]
+position = Vector2( -0.184017, -0.736075 )

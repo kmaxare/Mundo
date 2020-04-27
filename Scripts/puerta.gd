@@ -1,4 +1,4 @@
-extends Area2D
+extends StaticBody2D
 
 export var estado_puerta = 0 # 0 abierto, 1 cerrado, 2 rota
 export var num_puerta = 0
