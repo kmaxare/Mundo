@@ -8,7 +8,7 @@ load_path = "res://.import/loza.png-9e759f9a6496a09d81a695412a5e5381.stex"
 [node name="Escenario" type="Node2D"]
 
 [node name="losaNaranja" type="Sprite" parent="."]
-position = Vector2( 23.0769, 11.5384 )
+position = Vector2( 16.1918, -44.1251 )
 texture = SubResource( 1 )
 
 [node name="losaAzul" type="Sprite" parent="."]
@@ -16,407 +16,476 @@ vframes = 14
 hframes = 5
 
 [node name="pista01" type="Sprite" parent="."]
+position = Vector2( 31.9066, -43.1229 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
+region_rect = Rect2( 60, 12, 12, 12 )
 
 [node name="pista02" type="Sprite" parent="."]
+position = Vector2( 48.9924, -44.7115 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 1
 
 [node name="pista03" type="Sprite" parent="."]
+position = Vector2( 66.5916, -43.998 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 2
 
 [node name="pista04" type="Sprite" parent="."]
+position = Vector2( 82.7639, -43.5224 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 3
 
 [node name="pista05" type="Sprite" parent="."]
+position = Vector2( -29.0149, -28.5393 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 4
 
 [node name="pista06" type="Sprite" parent="."]
+position = Vector2( -14.7453, -29.0149 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 5
 
 [node name="pista07" type="Sprite" parent="."]
+position = Vector2( 0, -30.4419 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 6
 
 [node name="pista08" type="Sprite" parent="."]
+position = Vector2( 16.6479, -28.7771 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 7
 
 [node name="pista09" type="Sprite" parent="."]
+position = Vector2( 34.2471, -27.8258 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 8
 
 [node name="pista10" type="Sprite" parent="."]
+position = Vector2( 48.7546, -28.3014 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 9
 
 [node name="pista11" type="Sprite" parent="."]
+position = Vector2( 65.6403, -28.7771 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 10
 
 [node name="pista12" type="Sprite" parent="."]
+position = Vector2( 83.0017, -29.2527 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 11
 
 [node name="pista13" type="Sprite" parent="."]
+position = Vector2( -28.7771, -14.2696 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 12
 
 [node name="pista14" type="Sprite" parent="."]
+position = Vector2( -14.0318, -14.0318 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 13
 
 [node name="pista15" type="Sprite" parent="."]
+position = Vector2( 0.237823, -13.794 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 14
 
 [node name="pista16" type="Sprite" parent="."]
+position = Vector2( 16.1723, -14.0318 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 15
 
 [node name="pista17" type="Sprite" parent="."]
+position = Vector2( 33.5336, -14.0318 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 16
 
 [node name="pista18" type="Sprite" parent="."]
+position = Vector2( 48.7546, -14.0318 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 17
 
 [node name="pista19" type="Sprite" parent="."]
+position = Vector2( 65.4025, -14.2696 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 18
 
 [node name="pista20" type="Sprite" parent="."]
+position = Vector2( 81.5747, -14.9831 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 19
 
 [node name="pista21" type="Sprite" parent="."]
+position = Vector2( -28.7771, 1.42696 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 20
 
 [node name="pista22" type="Sprite" parent="."]
+position = Vector2( -13.3183, 1.18914 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 21
 
 [node name="pista23" type="Sprite" parent="."]
+position = Vector2( 1.35561, 0.380526 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 22
 
 [node name="pista24" type="Sprite" parent="."]
+position = Vector2( 15.5896, 1.58155 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 23
 
 [node name="pista25" type="Sprite" parent="."]
+position = Vector2( 30.9532, 0.677807 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 24
 
 [node name="pista26" type="Sprite" parent="."]
+position = Vector2( 48.1244, 0.903744 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 25
 
 [node name="pista27" type="Sprite" parent="."]
+position = Vector2( 64.8436, 0 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 26
 
 [node name="pista28" type="Sprite" parent="."]
+position = Vector2( 82.4666, 0.451872 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 27
 
 [node name="pista29" type="Sprite" parent="."]
+position = Vector2( -30.0495, 16.7193 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 28
 
 [node name="pista30" type="Sprite" parent="."]
+position = Vector2( -14.008, 16.9452 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 29
 
 [node name="pista31" type="Sprite" parent="."]
+position = Vector2( 1.35561, 16.7193 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 30
 
 [node name="pista32" type="Sprite" parent="."]
+position = Vector2( 17.623, 16.9452 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 31
 
 [node name="pista33" type="Sprite" parent="."]
+position = Vector2( 32.3088, 15.5896 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 32
 
 [node name="pista34" type="Sprite" parent="."]
+position = Vector2( 49.254, 16.4933 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 33
 
 [node name="pista35" type="Sprite" parent="."]
+position = Vector2( 66.6511, 15.8155 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 34
 
 [node name="pista36" type="Sprite" parent="."]
+position = Vector2( 84.0482, 14.9118 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 35
 
 [node name="pista37" type="Sprite" parent="."]
+position = Vector2( -28.9198, 32.5348 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 36
 
 [node name="pista38" type="Sprite" parent="."]
+position = Vector2( -12.8783, 32.5348 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 37
 
 [node name="pista39" type="Sprite" parent="."]
+position = Vector2( 2.25936, 32.7607 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 38
 
 [node name="pista40" type="Sprite" parent="."]
+position = Vector2( 17.1711, 32.3088 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 39
 
 [node name="pista41" type="Sprite" parent="."]
+position = Vector2( 33.2126, 32.3088 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 40
 
 [node name="pista42" type="Sprite" parent="."]
+position = Vector2( 49.7059, 31.631 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 41
 
 [node name="pista43" type="Sprite" parent="."]
+position = Vector2( 67.103, 30.5013 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 42
 
 [node name="pista44" type="Sprite" parent="."]
+position = Vector2( 85.6297, 31.1792 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 43
 
 [node name="pista45" type="Sprite" parent="."]
+position = Vector2( -28.9198, 50.1578 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 44
 
 [node name="pista46" type="Sprite" parent="."]
+position = Vector2( -13.1043, 50.1578 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 45
 
 [node name="pista47" type="Sprite" parent="."]
+position = Vector2( 1.8075, 49.48 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 46
 
 [node name="pista48" type="Sprite" parent="."]
+position = Vector2( 17.8489, 49.7059 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 47
 
 [node name="pista49" type="Sprite" parent="."]
+position = Vector2( 33.8904, 49.7059 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 48
 
 [node name="pista50" type="Sprite" parent="."]
+position = Vector2( 49.7059, 49.0281 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 49
 
 [node name="pista51" type="Sprite" parent="."]
+position = Vector2( 67.103, 48.1243 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 50
 
 [node name="pista52" type="Sprite" parent="."]
+position = Vector2( 84.0481, 48.5762 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 51
 
 [node name="pista53" type="Sprite" parent="."]
+position = Vector2( -28.4679, 67.103 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 52
 
 [node name="pista54" type="Sprite" parent="."]
+position = Vector2( -12.2005, 66.877 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 53
 
 [node name="pista55" type="Sprite" parent="."]
+position = Vector2( 2.71123, 67.103 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 54
 
 [node name="pista56" type="Sprite" parent="."]
+position = Vector2( 16.9452, 66.877 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 55
 
 [node name="pista57" type="Sprite" parent="."]
+position = Vector2( 34.1163, 66.4251 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 56
 
 [node name="pista58" type="Sprite" parent="."]
+position = Vector2( 50.8356, 65.2955 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 57
 
 [node name="pista59" type="Sprite" parent="."]
+position = Vector2( 68.2326, 65.7473 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 58
 
 [node name="pista60" type="Sprite" parent="."]
+position = Vector2( 85.1778, 65.9733 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 59
 
 [node name="pista61" type="Sprite" parent="."]
+position = Vector2( -28.016, 83.1444 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 60
 
 [node name="pista62" type="Sprite" parent="."]
+position = Vector2( -13.1043, 83.3703 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 61
 
 [node name="pista63" type="Sprite" parent="."]
+position = Vector2( 1.80748, 83.3703 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 62
 
 [node name="pista64" type="Sprite" parent="."]
+position = Vector2( 19.4305, 83.8222 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 63
 
 [node name="pista65" type="Sprite" parent="."]
+position = Vector2( 35.9238, 84.0481 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 64
 
 [node name="pista66" type="Sprite" parent="."]
+position = Vector2( 51.9653, 82.9185 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 65
 
 [node name="pista67" type="Sprite" parent="."]
+position = Vector2( 68.6845, 82.9185 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5
 frame = 66
 
 [node name="pista68" type="Sprite" parent="."]
+position = Vector2( 85.1278, 82.6925 )
 texture = ExtResource( 1 )
 vframes = 14
 hframes = 5

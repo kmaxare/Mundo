@@ -75,7 +75,6 @@ tracks/0/keys = {
 [node name="Personaje" type="KinematicBody2D" groups=[
 "Jugador",
 ]]
-position = Vector2( 27.3397, 22.5728 )
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
