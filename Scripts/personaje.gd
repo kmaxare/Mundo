@@ -13,19 +13,26 @@ var direccion_y = 0
 
 var obj_coll
 
-# Called when the node enters the scene tree for the first time.
+# Acciones puerta
+var puerta_true = false
+
 func _ready():
 	$anim.play("idleUno")
 	
 func _physics_process(delta):
 	
-	if $RayCast2D.is_colliding():
+	if $RayCast2D.is_colliding(): # Colicion con puerta
 		obj_coll = $RayCast2D.get_collider()
 		if obj_coll.is_in_group("Door"):
 #		obj_coll = $RayCast2D.get_collider()
 #		if obj_coll.is_in_group("Door"):
-			print ("HOla")
-		
+			get_tree().get_nodes_in_group("estado")[0].text = ("Estado: Puerta en frente")
+			puerta_true = true
+			
+	else:
+		get_tree().get_nodes_in_group("estado")[0].text = ("Estado:")
+		puerta_true = false
+					
 	movimiento(delta)
 
 func movimiento(delta):
@@ -41,6 +48,13 @@ func movimiento(delta):
 	velocidad.y = (direccion_y * distancia.y) / delta
 	
 	move_and_slide(velocidad, Vector2())
+	
+	if puerta_true:
+		abrir_puerta()
+	
+func abrir_puerta():
+	if Input.is_action_just_pressed("abrir_puerta"):
+		obj_coll.abrir_puerta()
 
 # Cambio de posicion de sprite en x and y - Adicional a eso cambio de pocicion de direccion del Raycast
 func sprite_and_Raycast():

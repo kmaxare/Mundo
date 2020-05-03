@@ -43,38 +43,54 @@ tile_data = PoolIntArray( -262145, 1, 0, -327678, 1, 0, -327672, 1, 0, -327669, 
 
 [node name="Edificio2" parent="Escenario/YSort" instance=ExtResource( 4 )]
 position = Vector2( 198.384, 28.849 )
+estado_puerta = 1
 
 [node name="Edificio4" parent="Escenario/YSort" instance=ExtResource( 4 )]
 position = Vector2( -67.6691, 28.5272 )
 
 [node name="Edificio" parent="Escenario/YSort" instance=ExtResource( 6 )]
-position = Vector2( 13.0824, -83.9293 )
+position = Vector2( 14.0824, -83.9293 )
 
 [node name="Edificio3" parent="Escenario/YSort" instance=ExtResource( 7 )]
 position = Vector2( 121.154, -117.741 )
 
 [node name="Edificio5" parent="Escenario/YSort" instance=ExtResource( 4 )]
 position = Vector2( 67.1183, 97.2647 )
+estado_puerta = 2
+
+[node name="Npc" type="Node2D" parent="Escenario/YSort"]
+
+[node name="npcUno" parent="Escenario/YSort/Npc" instance=ExtResource( 3 )]
+position = Vector2( 17.5694, -16.4858 )
+distancia = 90
+
+[node name="npcDos" parent="Escenario/YSort/Npc" instance=ExtResource( 3 )]
+position = Vector2( 18.5317, 112.116 )
+distancia = 30
+rut_patrullaje = false
+
+[node name="npcTres" parent="Escenario/YSort/Npc" instance=ExtResource( 3 )]
+position = Vector2( -17.1418, 10.1924 )
+rut_patrullaje = false
+
+[node name="npcCuat" parent="Escenario/YSort/Npc" instance=ExtResource( 3 )]
+position = Vector2( 19.7949, 175.769 )
+distancia = 65
 
 [node name="Personaje" parent="Escenario/YSort" instance=ExtResource( 1 )]
 position = Vector2( 185.572, -84.2853 )
 speed = 100
 
-[node name="Npc" type="Node2D" parent="."]
+[node name="GUI" type="CanvasLayer" parent="."]
 
-[node name="npcUno" parent="Npc" instance=ExtResource( 3 )]
-position = Vector2( 17.5694, -16.4858 )
-distancia = 90
-
-[node name="npcDos" parent="Npc" instance=ExtResource( 3 )]
-position = Vector2( 18.5317, 112.116 )
-distancia = 30
-rut_patrullaje = false
-
-[node name="npcTres" parent="Npc" instance=ExtResource( 3 )]
-position = Vector2( -17.1418, 10.1924 )
-rut_patrullaje = false
-
-[node name="npcCuat" parent="Npc" instance=ExtResource( 3 )]
-position = Vector2( 19.7949, 175.769 )
-distancia = 65
+[node name="estado" type="Label" parent="GUI" groups=[
+"estado",
+]]
+margin_left = 14.4246
+margin_top = 13.7308
+margin_right = 64.4246
+margin_bottom = 27.7308
+text = "Estado: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
